@@ -66,7 +66,7 @@ def scrape_page(scrap_url):
     fantasia_value = None
 
   # Situação
-  situacao_tag = soup.find('input', {'name': 'nm_razao_social'})
+  situacao_tag = soup.find('input', {'name': 'cs_estabelecimento'})
   situacao_value = situacao_tag['value'] if situacao_tag else None
 
   if situacao_value:
