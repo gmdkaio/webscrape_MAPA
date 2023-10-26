@@ -6,10 +6,10 @@ from bs4 import BeautifulSoup
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-data_dict = {}
+data_list = []
 
 def scrape_page(scrap_url):
-  global data_dict
+  data_dict = {}
 
   # Acess the page with selenium and ignore ssl
   chromedriver_autoinstaller.install()
@@ -98,7 +98,7 @@ def scrape_page(scrap_url):
   dtRegistro_value = dtRegistro_tag['value'] if dtRegistro_tag else None
 
   if dtRegistro_value:
-    data_dict['Data Registro'] = dtRegistro_tag
+    data_dict['Data Registro'] = dtRegistro_value
   else:
     dtRegistro_value = None
 
@@ -221,11 +221,13 @@ def scrape_page(scrap_url):
   else:
       descricao_value = None
 
+  data_list.append(data_dict)
+
 
 for url in links:
   scrape_page(url)
 
-print(data_dict)
+
 
     
 
