@@ -201,7 +201,7 @@ def scrape_page(scrap_url):
 
   if area_values:
       area_values_str = ', '.join(area_values)
-      data_dict['Descricao'] = area_values_str
+      data_dict['Área'] = area_values_str
   else:
       area_value = None
 
